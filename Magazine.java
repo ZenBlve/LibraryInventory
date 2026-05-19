@@ -8,10 +8,12 @@ public class Magazine extends Item {
       this.mainArticleTitle = requireText(mainArticleTitle, "mainArticleTitle");
   }
 
+  @Override
   public String getItemType() {
     return "MAGAZINE";
   }
 
+  @Override
   protected String getSpecificDetails() {
     return "Edition: " + edition + "\nMain Article: " + mainArticleTitle;
   }
