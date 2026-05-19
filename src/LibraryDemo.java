@@ -1,6 +1,5 @@
 import java.time.LocalDate;
-
-// Ivan Dibrova - testing my part of the project (storage)
+import java.util.List;
 
 public class LibraryDemo {
 
@@ -8,10 +7,31 @@ public class LibraryDemo {
 
         LibraryStorage libraryInventory = new LibraryStorage(5);
 
-        // TODO: replace with Book, Movie, Magazine from teammates when they add them
-        Item book = new TestBook();
-        Item movie = new TestMovie();
-        Item mag = new TestMagazine();
+        Item book = new Book(
+                "B001",
+                "Novel",
+                "Historical Fiction",
+                "War and Peace",
+                "Leo Tolstoy",
+                "1869"
+        );
+
+        Item movie = new Movie(
+                "M001",
+                "Horror Movie",
+                "Psychological Thriller",
+                "Psycho",
+                "Alfred Hitchcock",
+                List.of("Anthony Perkins", "Janet Leigh")
+        );
+
+        Item mag = new Magazine(
+                "Z001",
+                "Retail Catalogue",
+                "Department Store Magazine",
+                "Spring 1992",
+                "Home Appliances and Furniture"
+        );
 
         System.out.println("=== ADD ITEMS ===");
         libraryInventory.addItem(book, 0, 0);
@@ -64,47 +84,3 @@ public class LibraryDemo {
             System.out.println("Expected error: " + e.getMessage());
         }
     }
-
-    // simple test items - just so main() works before team merges all files
-    static class TestBook extends Item {
-        TestBook() {
-            super("B001", "Programming", "textbook");
-        }
-
-        public String getItemType() {
-            return "BOOK";
-        }
-
-        protected String getSpecificDetails() {
-            return "Title: Java Basics\nAuthor: Ivan Dibrova";
-        }
-    }
-
-    static class TestMovie extends Item {
-        TestMovie() {
-            super("M001", "Movie DVD", "film");
-        }
-
-        public String getItemType() {
-            return "MOVIE";
-        }
-
-        protected String getSpecificDetails() {
-            return "Title: Interstellar\nDirector: Nolan";
-        }
-    }
-
-    static class TestMagazine extends Item {
-        TestMagazine() {
-            super("Z001", "Tech Mag", "magazine");
-        }
-
-        public String getItemType() {
-            return "MAGAZINE";
-        }
-
-        protected String getSpecificDetails() {
-            return "Edition: 5\nMain article: AI";
-        }
-    }
-}
