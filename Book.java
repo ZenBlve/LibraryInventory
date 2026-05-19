@@ -15,8 +15,19 @@ public class Book extends Item {
 
         this.title = requireText(title, "title");
         this.author = requireText(author, "author");
-        this.copyrightDate =
-                requireText(copyrightDate, "copyrightDate");
+        this.copyrightDate = requireText(copyrightDate, "copyrightDate");
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getCopyrightDate() {
+        return copyrightDate;
     }
 
     @Override
